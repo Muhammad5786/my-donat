@@ -11,18 +11,18 @@ const categories = [
   {
     name: 'Donat',
     products: [
-      { name: 'Domini', description: 'Donat mini premium dengan berbagai topping. Perfect for sharing, aesthetic presentation, and sweet gifts.', price: '12 pcs - Rp 60.000', emoji: '🍩', tag: 'Best Seller', tagColor: 'bg-[#D77FA1]' },
-      { name: 'DonPiz', description: 'Mini donut pizza with bolognese, mozzarella, and real chicken. Savory meets sweet.', price: '12 pcs - Rp 70.000', emoji: '🍕', tag: 'Savory', tagColor: 'bg-[#A07898]' },
-      { name: 'Big Donut', description: 'Donat ukuran besar dengan topping premium.', price: '6 pcs - Rp 50.000', emoji: '🎉' },
-      { name: 'Bomboloni', description: 'Italian-style filled donuts, soft and pillowy with creamy fillings.', price: '8 pcs Rp 40k / 10 pcs Rp 50k', emoji: '🧁', tag: 'Filling', tagColor: 'bg-[#b5a0d8]' },
+      { name: 'Domini', description: 'Donat mini premium dengan berbagai topping. Perfect for sharing, aesthetic presentation, and sweet gifts.', price: '12 pcs - Rp 60.000', emoji: '🍩', image: '/domini1.jpg', tag: 'Best Seller', tagColor: 'bg-[#D77FA1]' },
+      { name: 'DonPiz', description: 'Mini donut pizza with bolognese, mozzarella, and real chicken. Savory meets sweet.', price: '12 pcs - Rp 70.000', emoji: '🍕', image: '/donpiz1.jpg', tag: 'Savory', tagColor: 'bg-[#A07898]' },
+      { name: 'Big Donut', description: 'Donat ukuran besar dengan topping premium.', price: '6 pcs - Rp 50.000', emoji: '🎉', image: '/bigdonut1.jpg' },
+      { name: 'Bomboloni', description: 'Italian-style filled donuts, soft and pillowy with creamy fillings.', price: '8 pcs Rp 40k / 10 pcs Rp 50k', emoji: '🧁', image: '/bomboloni1.jpg', tag: 'Filling', tagColor: 'bg-[#b5a0d8]' },
     ],
   },
   {
     name: 'Brownies & Kue',
     products: [
-      { name: 'Fudgy Brownies', description: 'Premium baked brownies with high quality chocolate and butter. Various toppings available. Can ship nationwide!', price: 'Hubungi kami', emoji: '🍫', tag: 'Ship Nationwide', tagColor: 'bg-[#6B4C5E]' },
+      { name: 'Fudgy Brownies', description: 'Premium baked brownies with high quality chocolate and butter. Various toppings available. Can ship nationwide!', price: 'Hubungi kami', emoji: '🍫', image: '/fudgy1.jpg', tag: 'Ship Nationwide', tagColor: 'bg-[#6B4C5E]' },
       { name: 'Brownies Kukus', description: 'Steamed brownies with a moist, rich texture. Classic Indonesian favourite.', price: 'Hubungi kami', emoji: '🟫' },
-      { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings.', price: 'Hubungi kami', emoji: '🎂' },
+      { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings.', price: 'Hubungi kami', emoji: '🎂', image: '/rollcake1.jpg' },
     ],
   },
   {

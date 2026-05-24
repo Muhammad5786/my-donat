@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MessageCircle, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -120,12 +121,11 @@ export default function Hero() {
             >
               {/* Main product card */}
               <div className="relative w-72 sm:w-80 lg:w-[360px] h-72 sm:h-80 lg:h-[360px] rounded-[2.5rem] bg-gradient-to-br from-white/90 via-pink-50/80 to-[#E6B2C6]/30 shadow-2xl shadow-pink-200/40 border border-white/80 overflow-hidden flex items-center justify-center">
-                {/* Placeholder donut visual */}
+                {/* Product image visual */}
                 <div className="text-center">
-                  <div className="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#E6B2C6]/60 to-[#D77FA1]/40 flex items-center justify-center shadow-inner">
-                    <div className="w-20 h-20 rounded-full bg-[#FEF6FB] shadow-md flex items-center justify-center">
-                      <span className="text-4xl">🍩</span>
-                    </div>
+                  <div className="relative w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#E6B2C6]/60 to-[#D77FA1]/40 shadow-inner overflow-hidden">
+                    <Image src="/domini1.jpg" alt="Domini Donat Mini" fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/10" />
                   </div>
                   <p className="mt-4 font-heading text-[#D77FA1] font-semibold text-lg">Domini</p>
                   <p className="text-[#A07898] text-sm">12 pcs — Rp 60.000</p>

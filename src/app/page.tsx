@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import TestimonialCard from '@/components/TestimonialCard';
@@ -12,12 +13,12 @@ export const metadata: Metadata = {
 };
 
 const products = [
-  { name: 'Domini', description: 'Donat mini premium dengan berbagai topping. Perfect for sharing, aesthetic presentation, and sweet gifts.', price: '12 pcs - Rp 60.000', emoji: '🍩', tag: 'Best Seller', tagColor: 'bg-[#D77FA1]' },
-  { name: 'DonPiz', description: 'Mini donut pizza with bolognese, mozzarella, and real chicken. Savory meets sweet in the most delightful way.', price: '12 pcs - Rp 70.000', emoji: '🍕', tag: 'Savory', tagColor: 'bg-[#A07898]' },
-  { name: 'Big Donut', description: 'Donat ukuran besar dengan topping premium. For those who love a generous, satisfying treat.', price: '6 pcs - Rp 50.000', emoji: '🎉' },
-  { name: 'Bomboloni', description: 'Italian-style filled donuts, soft and pillowy with creamy fillings in every bite.', price: '8 pcs Rp 40k / 10 pcs Rp 50k', emoji: '🧁', tag: 'Filling', tagColor: 'bg-[#b5a0d8]' },
-  { name: 'Fudgy Brownies', description: 'Premium baked brownies with high quality chocolate and butter. Various toppings. Ships nationwide!', price: 'Hubungi kami', emoji: '🍫', tag: 'Ship Nationwide', tagColor: 'bg-[#6B4C5E]' },
-  { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings. Light, fluffy, and oh-so-elegant.', price: 'Hubungi kami', emoji: '🎂' },
+  { name: 'Domini', description: 'Donat mini premium dengan berbagai topping. Perfect for sharing, aesthetic presentation, and sweet gifts.', price: '12 pcs - Rp 60.000', emoji: '🍩', image: '/domini1.jpg', tag: 'Best Seller', tagColor: 'bg-[#D77FA1]' },
+  { name: 'DonPiz', description: 'Mini donut pizza with bolognese, mozzarella, and real chicken. Savory meets sweet in the most delightful way.', price: '12 pcs - Rp 70.000', emoji: '🍕', image: '/donpiz1.jpg', tag: 'Savory', tagColor: 'bg-[#A07898]' },
+  { name: 'Big Donut', description: 'Donat ukuran besar dengan topping premium. For those who love a generous, satisfying treat.', price: '6 pcs - Rp 50.000', emoji: '🎉', image: '/bigdonut1.jpg' },
+  { name: 'Bomboloni', description: 'Italian-style filled donuts, soft and pillowy with creamy fillings in every bite.', price: '8 pcs Rp 40k / 10 pcs Rp 50k', emoji: '🧁', image: '/bomboloni1.jpg', tag: 'Filling', tagColor: 'bg-[#b5a0d8]' },
+  { name: 'Fudgy Brownies', description: 'Premium baked brownies with high quality chocolate and butter. Various toppings. Ships nationwide!', price: 'Hubungi kami', emoji: '🍫', image: '/fudgy1.jpg', tag: 'Ship Nationwide', tagColor: 'bg-[#6B4C5E]' },
+  { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings. Light, fluffy, and oh-so-elegant.', price: 'Hubungi kami', emoji: '🎂', image: '/rollcake1.jpg' },
   { name: 'Brownies Kukus', description: 'Steamed brownies with a moist, rich texture. Classic Indonesian favourite with a premium twist.', price: 'Hubungi kami', emoji: '🟫' },
   { name: 'Bolu Tape', description: 'Soft sponge cake made with traditional tape fermented cassava. Uniquely Indonesian, uniquely delicious.', price: 'Hubungi kami', emoji: '🍰' },
   { name: 'Bolu Pisang', description: 'Moist banana sponge cake with a warm homemade aroma. A comforting classic reimagined.', price: 'Hubungi kami', emoji: '🍌' },
@@ -47,9 +48,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative flex justify-center lg:justify-start">
-              <div className="relative w-80 sm:w-96 h-80 sm:h-96 rounded-[2.5rem] bg-gradient-to-br from-[#FEF6FB] via-pink-50 to-[#E6B2C6]/40 shadow-xl shadow-pink-100/50 border border-pink-100/60 flex flex-col items-center justify-center gap-4">
-                <div className="text-7xl">🍩</div>
-                <div className="text-center">
+              <div className="relative w-80 sm:w-96 h-80 sm:h-96 rounded-[2.5rem] bg-gradient-to-br from-[#FEF6FB] via-pink-50 to-[#D6E5FA]/40 shadow-xl shadow-pink-100/50 border border-pink-100/60 overflow-hidden">
+                <Image src="/domini1.jpg" alt="Domini Donat Mini" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/10" />
+                <div className="absolute inset-x-0 bottom-0 p-6 bg-white/80 backdrop-blur-sm">
                   <p className="font-heading text-3xl font-semibold text-[#D77FA1]">Domini</p>
                   <p className="text-[#A07898] text-sm mt-1">Donat Mini Premium</p>
                 </div>
