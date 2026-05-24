@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ShoppingBag } from 'lucide-react';
 
@@ -8,6 +9,7 @@ interface ProductCardProps {
   description: string;
   price: string;
   emoji: string;
+  image?: string;
   tag?: string;
   tagColor?: string;
   delay?: number;
@@ -18,6 +20,7 @@ export default function ProductCard({
   description,
   price,
   emoji,
+  image,
   tag,
   tagColor = 'bg-[#D77FA1]',
   delay = 0,
@@ -40,13 +43,20 @@ export default function ProductCard({
 
       {/* Image placeholder */}
       <div className="h-44 bg-gradient-to-br from-[#FEF6FB] via-pink-50 to-[#E6B2C6]/25 flex items-center justify-center relative overflow-hidden">
-        <motion.span
-          className="text-5xl"
-          whileHover={{ scale: 1.15, rotate: 5 }}
-          transition={{ duration: 0.3 }}
-        >
-          {emoji}
-        </motion.span>
+        {image ? (
+          <div className="relative h-full w-full">
+            <Image src={image} alt={name} fill className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+          </div>
+        ) : (
+          <motion.span
+            className="text-5xl"
+            whileHover={{ scale: 1.15, rotate: 5 }}
+            transition={{ duration: 0.3 }}
+          >
+            {emoji}
+          </motion.span>
+        )}
         {/* subtle circle behind */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-24 h-24 rounded-full bg-[#D77FA1]/8 group-hover:bg-[#D77FA1]/15 transition-all duration-500 scale-125" />
