@@ -21,7 +21,7 @@ const categories = [
     name: 'Brownies & Kue',
     products: [
       { name: 'Fudgy Brownies', description: 'Premium baked brownies with high quality chocolate and butter. Various toppings available. Can ship nationwide!', price: 'Hubungi kami', emoji: '🍫', image: '/fudgy1.jpg', tag: 'Ship Nationwide', tagColor: 'bg-[#6B4C5E]' },
-      { name: 'Brownies Kukus', description: 'Steamed brownies with a moist, rich texture. Classic Indonesian favourite.', price: 'Hubungi kami', emoji: '🟫' },
+      { name: 'Brownies Kukus', description: 'Steamed brownies with a moist, rich texture. Classic Indonesian favourite.', price: 'Hubungi kami', emoji: '🟫', image: '/kukus1.jpg' },
       { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings.', price: 'Hubungi kami', emoji: '🎂', image: '/rollcake1.jpg' },
     ],
   },
