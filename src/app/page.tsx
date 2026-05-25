@@ -21,7 +21,7 @@ const products = [
   { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings. Light, fluffy, and oh-so-elegant.', price: 'Hubungi kami', emoji: '🎂', image: '/rollcake1.jpg' },
   { name: 'Brownies Kukus', description: 'Steamed brownies with a moist, rich texture. Classic Indonesian favourite with a premium twist.', price: 'Hubungi kami', emoji: '🟫', image: '/kukus1.jpg' },
   { name: 'Bolu Tape', description: 'Soft sponge cake made with traditional tape fermented cassava. Uniquely Indonesian, uniquely delicious.', price: 'Hubungi kami', emoji: '🍰' },
-  { name: 'Bolu Pisang', description: 'Moist banana sponge cake with a warm homemade aroma. A comforting classic reimagined.', price: 'Hubungi kami', emoji: '🍌' },
+  { name: 'Bolu Pisang', description: 'Moist banana sponge cake with a warm homemade aroma. A comforting classic reimagined.', price: 'Hubungi kami', emoji: '🍌', image: '/pisang1.jpg'},
 ];
 
 const testimonials = [
