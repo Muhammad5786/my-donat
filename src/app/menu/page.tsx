@@ -28,7 +28,7 @@ const categories = [
   {
     name: 'Bolu',
     products: [
-      { name: 'Bolu Tape', description: 'Soft sponge cake made with traditional tape fermented cassava. Uniquely Indonesian.', price: 'Hubungi kami', emoji: '🍰' },
+      { name: 'Bolu Tape', description: 'Soft sponge cake made with traditional tape fermented cassava. Uniquely Indonesian.', price: 'Hubungi kami', emoji: '🍰',image: '/tape1.jpg' },
       { name: 'Bolu Pisang', description: 'Moist banana sponge cake with a warm homemade aroma.', price: 'Hubungi kami', emoji: '🍌' },
     ],
   },
