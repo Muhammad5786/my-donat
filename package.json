@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "express": "^5.2.1",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.16.0",
     "next": "16.2.6",
@@ -25,18 +24,5 @@
     "eslint-config-next": "16.2.6",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Muhammad5786/my-donat.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Muhammad5786/my-donat/issues"
-  },
-  "homepage": "https://github.com/Muhammad5786/my-donat#readme"
+  }
 }
