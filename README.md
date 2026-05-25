@@ -43,3 +43,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Febrio Pasha Arwanda  - 23.11.5763
 - Rayhan Ramadhany      - 23.11.5792
 - Harpan Esa Sairi      - 23.11.5766
+
+## DESKRIPSI
+Sistem yang dikembangkan merupakan landing page statis berbasis website menggunakan Next.js, Tailwind CSS, Framer Motion, dan Lucide React. Website terdiri dari halaman beranda, menu, dan FAQ dengan navigasi responsif. Saat ini sistem belum menggunakan database karena kontennya statis, namun telah disiapkan untuk integrasi Supabase di masa mendatang.
