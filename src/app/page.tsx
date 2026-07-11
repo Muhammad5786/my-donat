@@ -5,6 +5,7 @@ import ProductCard from '@/components/ProductCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import SectionWrapper from '@/components/SectionWrapper';
 import { MessageCircle, Clock, Sparkles, Truck, CheckCircle, Package, Shield, Star } from 'lucide-react';
+import { businessWhatsApp, products, testimonials, faqItems } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: "D'Mimah Donuts - Fresh Premium Homemade Donuts Yogyakarta",
@@ -12,31 +13,6 @@ export const metadata: Metadata = {
   keywords: ["donat yogyakarta", "donat homemade", "donat premium", "donat mini"],
 };
 
-const products = [
-  { name: 'Domini', description: 'Donat mini premium dengan berbagai topping. Perfect for sharing, aesthetic presentation, and sweet gifts.', price: '12 pcs - Rp 60.000', emoji: '🍩', image: '/domini1.jpg', tag: 'Best Seller', tagColor: 'bg-[#D77FA1]' },
-  { name: 'DonPiz', description: 'Mini donut pizza with bolognese, mozzarella, and real chicken. Savory meets sweet in the most delightful way.', price: '12 pcs - Rp 70.000', emoji: '🍕', image: '/donpiz1.jpg', tag: 'Savory', tagColor: 'bg-[#A07898]' },
-  { name: 'Big Donut', description: 'Donat ukuran besar dengan topping premium. For those who love a generous, satisfying treat.', price: '6 pcs - Rp 50.000', emoji: '🎉', image: '/bigdonut1.jpg' },
-  { name: 'Bomboloni', description: 'Italian-style filled donuts, soft and pillowy with creamy fillings in every bite.', price: '8 pcs Rp 40k / 10 pcs Rp 50k', emoji: '🧁', image: '/bomboloni1.jpg', tag: 'Filling', tagColor: 'bg-[#b5a0d8]' },
-  { name: 'Fudgy Brownies', description: 'Premium baked brownies with high quality chocolate and butter. Various toppings. Ships nationwide!', price: 'Hubungi kami', emoji: '🍫', image: '/fudgy1.jpg', tag: 'Ship Nationwide', tagColor: 'bg-[#6B4C5E]' },
-  { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings. Light, fluffy, and oh-so-elegant.', price: 'Hubungi kami', emoji: '🎂', image: '/rollcake1.jpg' },
-  { name: 'Brownies Kukus', description: 'Steamed brownies with a moist, rich texture. Classic Indonesian favourite with a premium twist.', price: 'Hubungi kami', emoji: '🟫', image: '/kukus1.jpg' },
-  { name: 'Bolu Tape', description: 'Soft sponge cake made with traditional tape fermented cassava. Uniquely Indonesian, uniquely delicious.', price: 'Hubungi kami', emoji: '🍰', image: '/tape1.jpg' },
-  { name: 'Bolu Pisang', description: 'Moist banana sponge cake with a warm homemade aroma. A comforting classic reimagined.', price: 'Hubungi kami', emoji: '🍌', image: '/pisang1.jpg'},
-];
-
-const testimonials = [
-  { name: 'Amelia R.', location: 'Sleman, Yogyakarta', text: 'Donatnya beneran fresh banget! Buat hampers ulang tahun teman, tampilannya cantik dan rasanya enak. Pasti repeat order lagi.', rating: 5, initial: 'A', bgColor: 'from-pink-100 to-pink-200' },
-  { name: 'Dewi S.', location: 'Bantul, Yogyakarta', text: 'Pesan buat snack kantor, langsung habis! Ukurannya pas, packaging rapi, dan harganya sangat worth it. Highly recommended.', rating: 5, initial: 'D', bgColor: 'from-purple-100 to-pink-100' },
-  { name: 'Farah M.', location: 'Kota Yogyakarta', text: 'Donat mini-nya lucu banget buat hadiah. Fudgy brownies-nya juga mantap, bisa dikirim ke luar kota!', rating: 5, initial: 'F', bgColor: 'from-blue-100 to-purple-100' },
-];
-
-const faqs = [
-  { q: 'Bagaimana cara preorder?', a: 'Hubungi kami via WhatsApp minimal H-3 sebelum tanggal pengiriman. Kami akan konfirmasi slot dan detail pesanan.' },
-  { q: 'Apakah bisa request topping custom?', a: 'Tentu bisa! Kami melayani request topping custom untuk beberapa produk. Konsultasikan dulu via WhatsApp.' },
-  { q: 'Area pengiriman mana saja?', a: 'Kami deliver ke seluruh Yogyakarta. Gratis ongkir radius 5km, biaya 5k-15k untuk area sekitar Jogja. Fudgy Brownies bisa dikirim ke luar kota via JNE, J&T, Pos Indonesia, Paxel, dan TIKI.' },
-  { q: 'Metode pembayaran apa saja?', a: 'Kami menerima QRIS, transfer BSI, dan transfer BCA. Detail rekening dikirimkan setelah konfirmasi pesanan.' },
-  { q: 'Berapa lama brownies bisa tahan?', a: 'Fudgy Brownies kami tahan lebih dari 2 minggu dengan penyimpanan yang tepat, sehingga aman dikirim ke luar kota.' },
-];
 
 export default function HomePage() {
   return (
@@ -78,7 +54,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <a href="https://wa.me/62000000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-[#D77FA1] hover:bg-[#c06890] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-pink-200/50 hover:shadow-xl hover:-translate-y-0.5">
+              <a href={businessWhatsApp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-[#D77FA1] hover:bg-[#c06890] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-pink-200/50 hover:shadow-xl hover:-translate-y-0.5">
                 <MessageCircle size={17} />Pesan Domini Sekarang
               </a>
             </div>
@@ -100,7 +76,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <a href="https://wa.me/62000000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 border-2 border-[#D77FA1] text-[#D77FA1] hover:bg-[#D77FA1] hover:text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300">
+            <a href={businessWhatsApp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 border-2 border-[#D77FA1] text-[#D77FA1] hover:bg-[#D77FA1] hover:text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300">
               <MessageCircle size={17} />Konsultasi Menu via WhatsApp
             </a>
           </div>
@@ -219,7 +195,7 @@ export default function HomePage() {
             <h2 className="font-heading text-4xl sm:text-5xl font-semibold text-[#2D1B2E] mb-4">Pertanyaan <span className="gradient-text">Umum</span></h2>
           </div>
           <div className="space-y-4">
-            {faqs.map((faq, i) => (
+            {faqItems.map((faq, i) => (
               <div key={i} className="bg-white/80 border border-pink-100/60 rounded-2xl p-6 shadow-sm">
                 <h3 className="font-heading font-semibold text-[#2D1B2E] mb-2 text-base">{faq.q}</h3>
                 <p className="text-[#6B4C5E] text-sm leading-relaxed">{faq.a}</p>
@@ -247,7 +223,7 @@ export default function HomePage() {
               <span className="text-4xl mb-5 block">🍩</span>
               <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-white mb-4">Reserve Your Preorder Slot Today</h2>
               <p className="text-white/70 mb-8 max-w-sm mx-auto leading-relaxed">Jangan sampai kehabisan slot. Pesan sekarang dan nikmati donat premium fresh dari dapur kami!</p>
-              <a href="https://wa.me/62000000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-white text-[#D77FA1] hover:bg-pink-50 font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-base">
+              <a href={businessWhatsApp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-white text-[#D77FA1] hover:bg-pink-50 font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-base">
                 <MessageCircle size={20} />Chat WhatsApp Sekarang
               </a>
               <p className="text-white/50 text-sm mt-5">Kami biasanya reply dalam 1 jam - Senin-Minggu</p>

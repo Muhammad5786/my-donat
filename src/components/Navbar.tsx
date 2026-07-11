@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { businessWhatsApp } from '@/lib/content';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -59,7 +60,7 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <a
-          href="https://wa.me/62000000000"
+          href={businessWhatsApp}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:flex items-center gap-2 bg-[#D77FA1] hover:bg-[#c06890] text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-300 shadow-md shadow-pink-200/50 hover:shadow-lg hover:shadow-pink-200/60 hover:-translate-y-0.5"
@@ -101,7 +102,7 @@ export default function Navbar() {
               ))}
               <li className="mt-2">
                 <a
-                  href="https://wa.me/62000000000"
+                  href={businessWhatsApp}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex justify-center bg-[#D77FA1] text-white font-semibold py-3 px-5 rounded-xl text-sm"

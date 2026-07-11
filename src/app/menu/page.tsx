@@ -1,38 +1,13 @@
 import type { Metadata } from 'next';
 import ProductCard from '@/components/ProductCard';
 import { MessageCircle } from 'lucide-react';
+import { businessWhatsApp, menuCategories } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: "Menu - D'Mimah Donuts",
   description: "Explore our full menu of premium homemade donuts and baked goods. Order fresh via WhatsApp.",
 };
 
-const categories = [
-  {
-    name: 'Donat',
-    products: [
-      { name: 'Domini', description: 'Donat mini premium dengan berbagai topping. Perfect for sharing, aesthetic presentation, and sweet gifts.', price: '12 pcs - Rp 60.000', emoji: '🍩', image: '/domini1.jpg', tag: 'Best Seller', tagColor: 'bg-[#D77FA1]' },
-      { name: 'DonPiz', description: 'Mini donut pizza with bolognese, mozzarella, and real chicken. Savory meets sweet.', price: '12 pcs - Rp 70.000', emoji: '🍕', image: '/donpiz1.jpg', tag: 'Savory', tagColor: 'bg-[#A07898]' },
-      { name: 'Big Donut', description: 'Donat ukuran besar dengan topping premium.', price: '6 pcs - Rp 50.000', emoji: '🎉', image: '/bigdonut1.jpg' },
-      { name: 'Bomboloni', description: 'Italian-style filled donuts, soft and pillowy with creamy fillings.', price: '8 pcs Rp 40k / 10 pcs Rp 50k', emoji: '🧁', image: '/bomboloni1.jpg', tag: 'Filling', tagColor: 'bg-[#b5a0d8]' },
-    ],
-  },
-  {
-    name: 'Brownies & Kue',
-    products: [
-      { name: 'Fudgy Brownies', description: 'Premium baked brownies with high quality chocolate and butter. Various toppings available. Can ship nationwide!', price: 'Hubungi kami', emoji: '🍫', image: '/fudgy1.jpg', tag: 'Ship Nationwide', tagColor: 'bg-[#6B4C5E]' },
-      { name: 'Brownies Kukus', description: 'Steamed brownies with a moist, rich texture. Classic Indonesian favourite.', price: 'Hubungi kami', emoji: '🟫', image: '/kukus1.jpg' },
-      { name: 'Rollcake', description: 'Premium butter rollcake with generous, creamy fillings.', price: 'Hubungi kami', emoji: '🎂', image: '/rollcake1.jpg' },
-    ],
-  },
-  {
-    name: 'Bolu',
-    products: [
-      { name: 'Bolu Tape', description: 'Soft sponge cake made with traditional tape fermented cassava. Uniquely Indonesian.', price: 'Hubungi kami', emoji: '🍰', image: '/tape1.jpg' },
-      { name: 'Bolu Pisang', description: 'Moist banana sponge cake with a warm homemade aroma.', price: 'Hubungi kami', emoji: '🍌', image: '/pisang1.jpg'},
-    ],
-  },
-];
 
 export default function MenuPage() {
   return (
@@ -50,7 +25,7 @@ export default function MenuPage() {
             Dibuat fresh dengan bahan pilihan. Semua tersedia via preorder WhatsApp.
           </p>
           <a
-            href="https://wa.me/62000000000"
+            href={businessWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#D77FA1] hover:bg-[#c06890] text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md shadow-pink-200/50"
@@ -61,7 +36,7 @@ export default function MenuPage() {
         </div>
 
         {/* Categories */}
-        {categories.map((cat) => (
+        {menuCategories.map((cat) => (
           <section key={cat.name} className="mb-16">
             <div className="flex items-center gap-4 mb-7">
               <h2 className="font-heading text-2xl font-semibold text-[#2D1B2E]">{cat.name}</h2>

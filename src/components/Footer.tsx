@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Share2, MessageCircle, Heart } from 'lucide-react';
+import { businessWhatsApp } from '@/lib/content';
 
 export default function Footer() {
   return (
@@ -26,7 +27,7 @@ export default function Footer() {
                 <Share2 size={16} />
               </a>
               <a
-                href="https://wa.me/62000000000"
+                href={businessWhatsApp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition-all duration-300"
@@ -66,7 +67,7 @@ export default function Footer() {
               <li>Yogyakarta, Indonesia</li>
               <li>
                 <a
-                  href="https://wa.me/62000000000"
+                  href={businessWhatsApp}
                   className="hover:text-white transition-colors duration-200"
                 >
                   WhatsApp Us
