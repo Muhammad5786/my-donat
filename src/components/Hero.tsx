@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MessageCircle, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import { businessWhatsApp } from '@/lib/content';
 
 export default function Hero() {
   return (
@@ -77,7 +78,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             >
               <a
-                href="https://wa.me/62000000000"
+                href={businessWhatsApp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-[#D77FA1] hover:bg-[#c06890] text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-pink-200/50 hover:shadow-xl hover:shadow-pink-200/60 hover:-translate-y-0.5"

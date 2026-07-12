@@ -1,45 +1,12 @@
 import type { Metadata } from 'next';
 import { MessageCircle } from 'lucide-react';
+import { businessWhatsApp, faqCategories } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: "FAQ - D'Mimah Donuts",
   description: "Pertanyaan umum seputar preorder, pengiriman, pembayaran, dan produk D'Mimah Donuts.",
 };
 
-const faqs = [
-  {
-    category: 'Preorder',
-    items: [
-      { q: 'Bagaimana cara preorder?', a: 'Hubungi kami via WhatsApp minimal H-3 sebelum tanggal pengiriman/pengambilan yang diinginkan. Kami akan konfirmasi ketersediaan slot dan detail pesanan Anda.' },
-      { q: 'Apakah ada minimum order?', a: 'Minimum order adalah Rp 60.000 per transaksi. Tidak ada minimum kuantitas per produk, selama total pesanan memenuhi minimum.' },
-      { q: 'Apakah bisa request topping custom?', a: 'Tentu bisa! Kami melayani request topping custom untuk beberapa produk. Konsultasikan dulu dengan kami via WhatsApp untuk mengetahui ketersediaannya.' },
-      { q: 'Bolehkah pesan lebih dari satu jenis produk?', a: 'Tentu boleh! Bahkan kami sangat menyarankan mencoba berbagai produk untuk momen yang berbeda.' },
-    ],
-  },
-  {
-    category: 'Pengiriman',
-    items: [
-      { q: 'Area pengiriman mana saja yang dilayani?', a: 'Kami melayani pengiriman ke seluruh area Yogyakarta. Gratis ongkir untuk radius 5km dari dapur kami, dan biaya 5k-15k untuk area sekitar Jogja. Fudgy Brownies bisa dikirim ke luar kota via JNE, J&T, Pos Indonesia, Paxel, dan TIKI.' },
-      { q: 'Apakah bisa dikirim ke luar kota atau luar pulau?', a: 'Ya! Khusus untuk Fudgy Brownies, kami melayani pengiriman ke luar kota dan luar pulau karena produk ini tahan lebih dari 2 minggu dengan dikemas aman.' },
-      { q: 'Produk dikemas seperti apa untuk pengiriman?', a: 'Kami menggunakan kemasan yang dirancang khusus untuk menjaga produk tetap aman dan dalam kondisi terbaik selama pengiriman.' },
-    ],
-  },
-  {
-    category: 'Pembayaran',
-    items: [
-      { q: 'Metode pembayaran apa saja yang tersedia?', a: 'Kami menerima QRIS, transfer BSI, dan transfer BCA. Detail rekening akan dikirimkan setelah konfirmasi pesanan.' },
-      { q: 'Kapan pembayaran harus dilakukan?', a: 'Pembayaran dilakukan saat konfirmasi pesanan (DP atau full payment), sebelum proses pembuatan dimulai.' },
-    ],
-  },
-  {
-    category: 'Produk',
-    items: [
-      { q: 'Berapa lama brownies bisa tahan?', a: 'Fudgy Brownies kami tahan lebih dari 2 minggu dengan penyimpanan yang tepat (suhu ruangan atau kulkas), sehingga aman dikirim ke luar kota.' },
-      { q: 'Apakah produk D\'Mimah sudah halal?', a: 'Ya, seluruh produk kami menggunakan bahan-bahan halal. Nomor sertifikasi halal kami: ID34110019557010924.' },
-      { q: 'Bagaimana cara menyimpan produk yang sudah diterima?', a: 'Donat sebaiknya dinikmati di hari yang sama. Brownies dan kue bisa disimpan di suhu ruangan atau kulkas untuk ketahanan lebih lama. Kami akan memberikan instruksi penyimpanan spesifik bersama setiap pesanan.' },
-    ],
-  },
-];
 
 export default function FAQPage() {
   return (
@@ -60,7 +27,7 @@ export default function FAQPage() {
 
         {/* FAQ Categories */}
         <div className="space-y-10">
-          {faqs.map((cat) => (
+          {faqCategories.map((cat) => (
             <section key={cat.category}>
               <h2 className="font-heading text-xl font-semibold text-[#D77FA1] mb-4 pl-1">
                 {cat.category}
@@ -82,7 +49,7 @@ export default function FAQPage() {
           <h3 className="font-heading text-2xl font-semibold mb-3">Masih ada pertanyaan?</h3>
           <p className="text-white/70 text-sm mb-6">Kami siap membantu! Chat kami langsung via WhatsApp.</p>
           <a
-            href="https://wa.me/62000000000"
+            href={businessWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-white text-[#D77FA1] font-bold px-7 py-3.5 rounded-full hover:bg-pink-50 transition-all duration-300 shadow-lg hover:-translate-y-0.5"

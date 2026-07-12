@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ShoppingBag } from 'lucide-react';
+import { businessWhatsApp } from '@/lib/content';
 
 interface ProductCardProps {
   name: string;
@@ -70,7 +71,7 @@ export default function ProductCard({
         <div className="flex items-center justify-between">
           <span className="font-heading text-[#D77FA1] text-base font-semibold">{price}</span>
           <a
-            href="https://wa.me/62000000000"
+            href={businessWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs font-semibold text-[#D77FA1] hover:text-white bg-pink-50 hover:bg-[#D77FA1] px-3 py-2 rounded-full transition-all duration-300"
