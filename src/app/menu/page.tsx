@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import ProductCard from '@/components/ProductCard';
 import { MessageCircle } from 'lucide-react';
-import { businessWhatsApp, menuCategories } from '@/lib/content';
+import { businessWhatsApp } from '@/lib/content';
+import { getCategories } from '@/lib/supabase/queries';
+import { createServerSupabaseClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
   title: "Menu - D'Mimah Donuts",
@@ -9,7 +11,32 @@ export const metadata: Metadata = {
 };
 
 
-export default function MenuPage() {
+export default async function MenuPage() {
+  const supabase = await createServerSupabaseClient();
+  const categories = (await getCategories())
+    .filter((cat) => cat.products?.length > 0)
+    .map((cat) => ({
+      name: cat.name,
+      products: cat.products.map((product) => {
+        const firstImage = product.product_images?.[0];
+        const firstTag = product.product_tags?.[0];
+        const image = firstImage?.storage_path
+          ? supabase.storage.from('product-images').getPublicUrl(firstImage.storage_path).data.publicUrl ?? undefined
+          : undefined;
+
+        return {
+          id: product.id,
+          name: product.name,
+          description: product.description ?? '',
+          price: product.price_label ?? '',
+          emoji: '🍩',
+          image,
+          tag: firstTag?.label ?? undefined,
+          tagColor: firstTag?.color_class ?? undefined,
+        };
+      }),
+    }));
+
   return (
     <main className="min-h-screen pt-24 pb-20 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto">
@@ -36,7 +63,7 @@ export default function MenuPage() {
         </div>
 
         {/* Categories */}
-        {menuCategories.map((cat) => (
+        {categories.map((cat) => (
           <section key={cat.name} className="mb-16">
             <div className="flex items-center gap-4 mb-7">
               <h2 className="font-heading text-2xl font-semibold text-[#2D1B2E]">{cat.name}</h2>

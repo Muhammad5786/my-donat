@@ -5,7 +5,9 @@ import ProductCard from '@/components/ProductCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import SectionWrapper from '@/components/SectionWrapper';
 import { MessageCircle, Clock, Sparkles, Truck, CheckCircle, Package, Shield, Star } from 'lucide-react';
-import { businessWhatsApp, products, testimonials, faqItems } from '@/lib/content';
+import { getFeaturedProducts } from '@/lib/supabase/queries';
+import { supabaseUrl } from '@/lib/supabase/env';
+import { businessWhatsApp, testimonials, faqItems } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: "D'Mimah Donuts - Fresh Premium Homemade Donuts Yogyakarta",
@@ -14,7 +16,9 @@ export const metadata: Metadata = {
 };
 
 
-export default function HomePage() {
+export default async function HomePage() {
+  const featuredProducts = await getFeaturedProducts();
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -71,9 +75,27 @@ export default function HomePage() {
             <p className="text-[#A07898] max-w-md mx-auto">Dibuat dengan bahan pilihan, penuh perhatian, dan cinta. Setiap gigitan adalah kebahagiaan.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {products.map((product, i) => (
-              <ProductCard key={product.name} {...product} delay={i * 0.07} />
-            ))}
+            {featuredProducts.map((product, i) => {
+              const firstImage = product.product_images?.[0];
+              const firstTag = product.product_tags?.[0];
+              const image = firstImage?.storage_path
+                ? `${supabaseUrl}/storage/v1/object/public/product-images/${firstImage.storage_path}`
+                : undefined;
+
+              return (
+                <ProductCard
+                  key={product.id}
+                  name={product.name}
+                  description={product.description ?? ''}
+                  price={product.price_label ?? ''}
+                  emoji="🍩"
+                  image={image}
+                  tag={firstTag?.label ?? undefined}
+                  tagColor={firstTag?.color_class ?? undefined}
+                  delay={i * 0.07}
+                />
+              );
+            })}
           </div>
           <div className="text-center mt-10">
             <a href={businessWhatsApp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 border-2 border-[#D77FA1] text-[#D77FA1] hover:bg-[#D77FA1] hover:text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300">
