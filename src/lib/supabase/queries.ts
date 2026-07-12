@@ -77,3 +77,55 @@ export async function getProductBySlug(slug: string): Promise<ProductWithRelatio
 
   return (data as ProductWithRelations | null) ?? null;
 }
+
+export async function getAdminDashboardData() {
+  const supabase = await createServerSupabaseClient();
+
+  const [categoriesResult, productsResult, featuredResult, recentProductsResult] = await Promise.all([
+    supabase.from('categories').select('*', { count: 'exact', head: true }),
+    supabase.from('products').select('*', { count: 'exact', head: true }).eq('is_visible', true),
+    supabase.from('products').select('*', { count: 'exact', head: true }).eq('is_visible', true).eq('is_featured', true),
+    supabase
+      .from('products')
+      .select('id, name, price_label, is_visible, is_featured, created_at, category:categories(name)')
+      .order('created_at', { ascending: false })
+      .limit(5),
+  ]);
+
+  if (categoriesResult.error) {
+    throw categoriesResult.error;
+  }
+
+  if (productsResult.error) {
+    throw productsResult.error;
+  }
+
+  if (featuredResult.error) {
+    throw featuredResult.error;
+  }
+
+  if (recentProductsResult.error) {
+    throw recentProductsResult.error;
+  }
+
+  const recentProducts = (recentProductsResult.data ?? []).map((product) => {
+    const categoryValue = Array.isArray(product.category) ? product.category[0] ?? null : product.category;
+
+    return {
+      id: product.id,
+      name: product.name,
+      price_label: product.price_label,
+      is_visible: product.is_visible,
+      is_featured: product.is_featured,
+      created_at: product.created_at,
+      category: categoryValue ? { name: categoryValue.name } : null,
+    };
+  });
+
+  return {
+    totalCategories: categoriesResult.count ?? 0,
+    totalActiveProducts: productsResult.count ?? 0,
+    totalFeaturedProducts: featuredResult.count ?? 0,
+    recentProducts,
+  };
+}
