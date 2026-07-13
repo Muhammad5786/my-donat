@@ -46,7 +46,13 @@ export default function ProductCard({
       <div className="h-44 bg-gradient-to-br from-[#FEF6FB] via-pink-50 to-[#E6B2C6]/25 flex items-center justify-center relative overflow-hidden">
         {image ? (
           <div className="relative h-full w-full">
-            <Image src={image} alt={name} fill className="object-cover" />
+            <Image
+              src={image}
+              alt={name}
+              fill
+              sizes="(max-width: 640px) 100vw, 320px"
+              className="object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
           </div>
         ) : (

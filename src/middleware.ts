@@ -3,57 +3,42 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
 import { supabasePublishableKey, supabaseUrl } from '@/lib/supabase/env';
 
+const ADMIN_LOGIN_ROUTE = '/admin/login';
+const ADMIN_DASHBOARD_ROUTE = '/admin/dashboard';
+
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const isAdminRoute = pathname === '/admin' || pathname.startsWith('/admin/');
-  const isAdminLoginRoute = pathname === '/admin/login';
-
   const response = await updateSession(request);
 
-  if (!isAdminRoute) {
+  if (!pathname.startsWith('/admin')) {
     return response;
   }
 
-  let user = null;
-
-  if (supabaseUrl && supabasePublishableKey) {
-    const supabase = createServerClient(supabaseUrl, supabasePublishableKey, {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) => {
-            request.cookies.set(name, value);
-          });
-
-          cookiesToSet.forEach(({ name, value, options }) => {
-            response.cookies.set(name, value, options);
-          });
-        },
+  const supabase = createServerClient(supabaseUrl, supabasePublishableKey, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
       },
-    });
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value, options }) => {
+          response.cookies.set(name, value, options);
+        });
+      },
+    },
+  });
 
-    const { data } = await supabase.auth.getUser();
-    user = data.user;
-  }
+  const { data } = await supabase.auth.getUser();
+  const user = data?.user ?? null;
 
-  if (isAdminLoginRoute) {
+  if (pathname === ADMIN_LOGIN_ROUTE) {
     if (user) {
-      const redirectUrl = request.nextUrl.clone();
-      redirectUrl.pathname = '/admin/dashboard';
-      redirectUrl.search = '';
-      return NextResponse.redirect(redirectUrl);
+      return NextResponse.redirect(new URL(ADMIN_DASHBOARD_ROUTE, request.url));
     }
-
     return response;
   }
 
   if (!user) {
-    const loginUrl = request.nextUrl.clone();
-    loginUrl.pathname = '/admin/login';
-    loginUrl.search = '';
-    return NextResponse.redirect(loginUrl);
+    return NextResponse.redirect(new URL(ADMIN_LOGIN_ROUTE, request.url));
   }
 
   return response;
