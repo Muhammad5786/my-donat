@@ -125,7 +125,13 @@ export default function Hero() {
                 {/* Product image visual */}
                 <div className="text-center">
                   <div className="relative w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-[#E6B2C6]/60 to-[#D77FA1]/40 shadow-inner overflow-hidden">
-                    <Image src="/domini1.jpg" alt="Domini Donat Mini" fill className="object-cover" />
+                    <Image
+                      src="/domini1.jpg"
+                      alt="Domini Donat Mini"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 160px"
+                      className="object-cover"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/10" />
                   </div>
                   <p className="mt-4 font-heading text-[#D77FA1] font-semibold text-lg">Domini</p>

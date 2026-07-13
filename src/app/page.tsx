@@ -29,7 +29,13 @@ export default async function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative flex justify-center lg:justify-start">
               <div className="relative w-80 sm:w-96 h-80 sm:h-96 rounded-[2.5rem] bg-gradient-to-br from-[#FEF6FB] via-pink-50 to-[#D6E5FA]/40 shadow-xl shadow-pink-100/50 border border-pink-100/60 overflow-hidden">
-                <Image src="/domini1.jpg" alt="Domini Donat Mini" fill className="object-cover" />
+                <Image
+                  src="/domini1.jpg"
+                  alt="Domini Donat Mini"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 384px"
+                  className="object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-br from-black/0 to-black/10" />
                 <div className="absolute inset-x-0 bottom-0 p-6 bg-white/80 backdrop-blur-sm">
                   <p className="font-heading text-3xl font-semibold text-[#D77FA1]">Domini</p>
