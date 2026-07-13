@@ -32,7 +32,10 @@ export default function AdminSidebar() {
     setIsOpen(false);
   }, [pathname]);
 
-  return (
+  // Hide sidebar on login page
+  const isLoginPage = pathname === '/admin/login';
+
+  return isLoginPage ? null : (
     <>
       <button
         type="button"
