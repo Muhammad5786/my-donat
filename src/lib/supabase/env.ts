@@ -1,6 +1,4 @@
-function getRequiredEnv(name: string): string {
-  const value = process.env[name];
-
+function getRequiredEnv(name: string, value: string | undefined): string {
   if (!value) {
     throw new Error(`Missing env var: ${name}`);
   }
@@ -8,5 +6,12 @@ function getRequiredEnv(name: string): string {
   return value;
 }
 
-export const supabaseUrl = getRequiredEnv('NEXT_PUBLIC_SUPABASE_URL');
-export const supabasePublishableKey = getRequiredEnv('NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY');
+export const supabaseUrl = getRequiredEnv(
+  'NEXT_PUBLIC_SUPABASE_URL',
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+);
+
+export const supabasePublishableKey = getRequiredEnv(
+  'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+);
