@@ -10,17 +10,46 @@ import { supabaseUrl } from '@/lib/supabase/env';
 import { businessWhatsApp, testimonials, faqItems } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: "D'Mimah Donuts - Fresh Premium Homemade Donuts Yogyakarta",
-  description: "Donat mini premium homemade dari Yogyakarta. Fresh by preorder untuk momen spesial, hampers, dan hadiah.",
-  keywords: ["donat yogyakarta", "donat homemade", "donat premium", "donat mini"],
+  title: 'Home',
+  description:
+    'Donat mini premium homemade dari Yogyakarta. Fresh by preorder untuk momen spesial, hampers, dan hadiah.',
+  keywords: ['donat yogyakarta', 'donat homemade', 'donat premium', 'donat mini'],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "D'Mimah Donuts - Fresh Premium Homemade Donuts Yogyakarta",
+    description:
+      'Donat mini premium homemade dari Yogyakarta. Fresh by preorder untuk momen spesial, hampers, dan hadiah.',
+    url: '/',
+    type: 'website',
+    images: [{ url: '/domini1.jpg', width: 1200, height: 630, alt: "D'Mimah Donuts" }],
+  },
 };
-
 
 export default async function HomePage() {
   const featuredProducts = await getFeaturedProducts();
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Bakery',
+    name: "D'Mimah Donuts",
+    url: 'https://www.dmimahdonuts.com',
+    image: 'https://www.dmimahdonuts.com/domini1.jpg',
+    description:
+      'Fresh premium homemade donuts dari Yogyakarta yang dibuat khusus untuk hampers, hadiah, dan momen spesial.',
+    areaServed: 'ID',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'ID',
+      addressRegion: 'Yogyakarta',
+    },
+    sameAs: ['https://www.instagram.com'],
+  };
 
   return (
-    <main className="overflow-hidden">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <main className="overflow-hidden">
       <Hero />
 
       {/* SIGNATURE PRODUCT */}
@@ -260,5 +289,6 @@ export default async function HomePage() {
         </div>
       </SectionWrapper>
     </main>
+    </>
   );
 }

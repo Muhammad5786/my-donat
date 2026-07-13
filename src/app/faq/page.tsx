@@ -3,14 +3,41 @@ import { MessageCircle } from 'lucide-react';
 import { businessWhatsApp, faqCategories } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: "FAQ - D'Mimah Donuts",
-  description: "Pertanyaan umum seputar preorder, pengiriman, pembayaran, dan produk D'Mimah Donuts.",
+  title: 'FAQ',
+  description:
+    'Pertanyaan umum seputar preorder, pengiriman, pembayaran, dan produk D\'Mimah Donuts.',
+  alternates: {
+    canonical: '/faq',
+  },
+  openGraph: {
+    title: "FAQ D'Mimah Donuts",
+    description:
+      'Temukan jawaban seputar preorder, pengiriman, pembayaran, dan produk D\'Mimah Donuts.',
+    url: '/faq',
+    type: 'website',
+  },
 };
 
-
 export default function FAQPage() {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqCategories.flatMap((category) =>
+      category.items.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a,
+        },
+      })),
+    ),
+  };
+
   return (
-    <main className="min-h-screen pt-24 pb-20 px-5 sm:px-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <main className="min-h-screen pt-24 pb-20 px-5 sm:px-8">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
@@ -60,5 +87,6 @@ export default function FAQPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }
