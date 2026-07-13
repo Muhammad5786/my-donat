@@ -3,8 +3,12 @@ import type { ReactNode } from 'react';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 
 export const metadata: Metadata = {
-  title: 'Admin Panel | D\'Mimah Donuts',
-  description: 'Area admin D\'Mimah Donuts',
+  title: 'Admin Panel',
+  description: 'Area admin D\'Mimah Donuts.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function AdminLayout({ children }: { children: ReactNode }) {

@@ -6,10 +6,20 @@ import { getCategories } from '@/lib/supabase/queries';
 import { createServerSupabaseClient } from '@/lib/supabase/server';
 
 export const metadata: Metadata = {
-  title: "Menu - D'Mimah Donuts",
-  description: "Explore our full menu of premium homemade donuts and baked goods. Order fresh via WhatsApp.",
+  title: 'Menu',
+  description:
+    'Lihat menu lengkap donat mini premium D\'Mimah Donuts. Semua produk tersedia via preorder WhatsApp dan dibuat fresh.',
+  alternates: {
+    canonical: '/menu',
+  },
+  openGraph: {
+    title: "Menu D'Mimah Donuts",
+    description:
+      'Lihat menu lengkap donat mini premium D\'Mimah Donuts. Semua produk tersedia via preorder WhatsApp dan dibuat fresh.',
+    url: '/menu',
+    type: 'website',
+  },
 };
-
 
 export default async function MenuPage() {
   const supabase = await createServerSupabaseClient();
@@ -37,8 +47,30 @@ export default async function MenuPage() {
       }),
     }));
 
+  const menuSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: "Menu D'Mimah Donuts",
+    url: 'https://www.dmimahdonuts.com/menu',
+    description:
+      'Menu lengkap donat mini premium D\'Mimah Donuts yang siap dipesan via preorder WhatsApp.',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: categories.flatMap((category, categoryIndex) =>
+        category.products.map((product, productIndex) => ({
+          '@type': 'ListItem',
+          position: categoryIndex * 100 + productIndex + 1,
+          name: product.name,
+          description: product.description ?? '',
+        })),
+      ),
+    },
+  };
+
   return (
-    <main className="min-h-screen pt-24 pb-20 px-5 sm:px-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(menuSchema) }} />
+      <main className="min-h-screen pt-24 pb-20 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -84,5 +116,6 @@ export default async function MenuPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }
