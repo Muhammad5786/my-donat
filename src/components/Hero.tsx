@@ -157,7 +157,7 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute -top-4 -right-6 bg-white rounded-2xl p-3 shadow-lg shadow-pink-100/60 border border-pink-50"
+                className="absolute -top-4 -left-6 bg-white rounded-2xl p-3 shadow-lg shadow-pink-100/60 border border-pink-50"
               >
                 <p className="text-xs text-[#A07898] font-medium">Free delivery</p>
                 <p className="text-sm font-bold text-[#6B4C5E]">within 5km</p>
