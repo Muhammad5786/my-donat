@@ -43,8 +43,9 @@ on conflict (id) do nothing;
 
 insert into public.product_tags (id, product_id, label, color_class)
 values
-  ('2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a2a', 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Best Seller', 'bg-[#D77FA1]'),
-  ('2b2b2b2b-2b2b-2b2b-2b2b-2b2b2b2b2b2b', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'Savory', 'bg-[#A07898]'),
-  ('2c2c2c2c-2c2c-2c2c-2c2c-2c2c2c2c2c2c', 'dddddddd-dddd-dddd-dddd-ddddddddddddd', 'Filling', 'bg-[#b5a0d8]'),
-  ('2d2d2d2d-2d2d-2d2d-2d2d-2d2d2d2d2d2d', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'Ship Nationwide', 'bg-[#6B4C5E]')
+  ('2a2a2a2a-2a2a-2a2a-2a2a-2a2a2a2a2a2a', 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Best Seller', '#D77FA1'),
+  ('2b2b2b2b-2b2b-2b2b-2b2b-2b2b2b2b2b2b', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'Savory', '#A07898'),
+  ('2c2c2c2c-2c2c-2c2c-2c2c-2c2c2c2c2c2c', 'dddddddd-dddd-dddd-dddd-dddddddddddd', 'Filling', '#b5a0d8'),
+  ('2d2d2d2d-2d2d-2d2d-2d2d-2d2d2d2d2d2d', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'Ship Nationwide', '#6B4C5E')
 on conflict (id) do nothing;
+
