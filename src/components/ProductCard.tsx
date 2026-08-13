@@ -23,7 +23,7 @@ export default function ProductCard({
   emoji,
   image,
   tag,
-  tagColor = 'bg-[#D77FA1]',
+  tagColor = '#D77FA1',
   delay = 0,
 }: ProductCardProps) {
   return (
@@ -37,7 +37,10 @@ export default function ProductCard({
     >
       {/* Tag */}
       {tag && (
-        <span className={`absolute top-4 right-4 ${tagColor} text-white text-xs font-bold px-2.5 py-1 rounded-full z-10`}>
+        <span
+          className="absolute top-4 right-4 text-white text-xs font-bold px-2.5 py-1 rounded-full z-10"
+          style={{ backgroundColor: tagColor?.startsWith('#') ? tagColor : '#D77FA1' }}
+        >
           {tag}
         </span>
       )}

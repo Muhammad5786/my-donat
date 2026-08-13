@@ -13,7 +13,7 @@ export default function AdminLayoutShell({ children }: { children: ReactNode }) 
       <div className="flex min-h-screen">
         <AdminSidebar />
         <main className="flex-1">
-          <div className={`mx-auto w-full max-w-6xl ${isLoginPage ? '' : 'md:pl-72'}`}>
+          <div className={`mx-auto w-full max-w-7xl ${isLoginPage ? '' : 'md:pl-72'}`}>
             {children}
           </div>
         </main>
